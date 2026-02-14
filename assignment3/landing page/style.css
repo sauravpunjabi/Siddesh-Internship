@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #000000;
+    color: #fff;
+    text-align: center;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 35px;
+    background: #000000;
+    top: 0;
+}
+
+.hero{
+    padding: 75px 15px;
+}
+
+buttons{
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+.buy{
+    background: #3a5cff;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.learn{
+    background: transparent;
+    border: solid #3a5cff;
+    color: #3a5cff;
+}
+
+.hero img{
+    width: 750px;
+    max-width: 95%;
+    margin-top: 35px;
+}
+
+.navbar a{
+    color: #e0dfdf;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.navbar a:hover{
+    color: #fff;
+}
+
+.hero h1{
+    font-size: 45px ;
+}
+
+.hero p{
+    color: #898282;
+    margin: 12px;
+
+}
