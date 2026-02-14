@@ -1,0 +1,56 @@
+body{
+    margin:0;
+    font-family: sans-serif;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 35px;
+    background: #121111;
+    color: white;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a{
+    color: white;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 275px;
+    background: white;
+}
+
+section{
+    padding: 35px; text-align: center;
+}
+
+.container, .skill-container{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.card{
+    background: white;
+    padding: 15px;
+    width: 225px;
+    border-radius: 10px;
+}
+
+.skill-container span{
+    background: #454545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
