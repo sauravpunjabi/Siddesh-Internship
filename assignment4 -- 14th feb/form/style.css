@@ -1,0 +1,42 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background: rgb(74, 67, 67);
+    
+}
+
+h2{
+    text-align: center;
+    color: white;
+}
+
+form{
+    width: 300px;
+    margin: 35px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.control{
+    margin-bottom: 10px;
+}
+
+button{
+    width: 100%;
+    border: none;
+    background: #6cdf70;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #4CAF50;
+}
+
+.control input{
+    width: 50%;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
