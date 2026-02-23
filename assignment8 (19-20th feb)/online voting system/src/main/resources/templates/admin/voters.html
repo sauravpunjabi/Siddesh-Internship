@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Manage Voters</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/admin/dashboard}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/admin/candidates}">Candidates</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/admin/voters}">Voters</a></li>
+                </ul>
+                <form th:action="@{/logout}" method="post" class="d-flex">
+                    <button class="btn btn-outline-light" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Manage Voters</h2>
+        <hr>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">Add Voter</div>
+            <div class="card-body">
+                <form th:action="@{/admin/voters/add}" method="post" class="row gx-3 gy-2 align-items-center">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary">Add Voter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Has Voted</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="voter : ${voters}">
+                            <td th:text="${voter.id}"></td>
+                            <td th:text="${voter.username}"></td>
+                            <td>
+                                <span th:if="${voter.hasVoted}" class="badge bg-success">Yes</span>
+                                <span th:if="${!voter.hasVoted}" class="badge bg-secondary">No</span>
+                            </td>
+                            <td>
+                                <form th:action="@{/admin/voters/delete/{id}(id=${voter.id})}" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
