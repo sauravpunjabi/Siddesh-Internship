@@ -12,14 +12,17 @@ class OrderItemSeralizer(serializers.ModelSerializer):
         fields = ["product", "quantity"]
 
 class OrderSerializer(serializers.ModelSerializer):
-    items = OrderItemSeralizer(many=True)
+    items = OrderItemSeralizer(many=True, write_only=True)
+    # Make total_amount read-only so DRF doesn't demand it in the POST request
+    total_amount = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
+
     class Meta:
         model = Order
-        fields = "__all__"
+        fields = ['id', 'customer', 'order_date', 'status', 'payment_method', 'total_amount', 'items']
     
     def create(self, validated_data):
         items_data = validated_data.pop("items")
-        order = Order.objects.create(**validated_data)
+        order = Order.objects.create(**validated_data, total_amount=0)
         total = 0
 
         for item in items_data:
